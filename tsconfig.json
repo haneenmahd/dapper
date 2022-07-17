@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "allowJs": true,
+    "checkJs": true,
+    "typeRoots": ["node_modules/@types", "./types"],
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "esModuleInterop": true
+  },
+  "include": ["lib", "types"]
+}
