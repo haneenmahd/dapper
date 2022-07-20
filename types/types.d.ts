@@ -1,4 +1,12 @@
-type StateSetter<T> = (newValue: T) => void;
-type StateGetter<T> = () => T;
+interface StateObject<T> {
+  value: T;
+  onChange?: (newValue: T) => void;
 
-type StateObject<T> = [StateGetter<T>, StateSetter<T>];
+  set(newValue: T): void;
+  get(): T;
+}
+
+type StateSetter<T> = (newValue: T) => void;
+type StateGetter<T> = () => StateObject<T>;
+
+type StateDestructor<T> = [StateGetter<T>, StateSetter<T>];
