@@ -9,5 +9,5 @@ test("Set state", () => {
   let finalNewValue = "final value";
   setValue(finalNewValue);
 
-  expect(checker()).toEqual(finalNewValue);
+  expect(checker.get()).toEqual(finalNewValue);
 });

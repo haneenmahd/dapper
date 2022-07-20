@@ -6,5 +6,5 @@ test("Set state", () => {
   let newValue = "new value";
   setValue(newValue);
 
-  expect(checker()).toEqual(newValue);
+  expect(checker.get()).toEqual(newValue);
 });
