@@ -7,6 +7,6 @@ interface StateObject<T> {
 }
 
 type StateSetter<T> = (newValue: T) => void;
-type StateGetter<T> = () => StateObject<T>;
+type StateGetter<T> = StateObject<T>;
 
 type StateDestructor<T> = [StateGetter<T>, StateSetter<T>];
