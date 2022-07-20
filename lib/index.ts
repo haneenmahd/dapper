@@ -1,3 +1,4 @@
 import useState from "./useState";
+import useEffect from "./useEffect";
 
-export { useState };
+export { useState, useEffect };
