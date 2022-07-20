@@ -1,5 +1,3 @@
-# StateX 👓
-
 ![Banner](https://github.com/TruelinesHQ/statex/blob/main/resources/banner.png)
 
 Hooks for managing state in Javascript
