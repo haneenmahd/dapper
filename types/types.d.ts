@@ -1,11 +1,11 @@
 interface StateObject<T> {
   value: T;
-  onChange?: (newValue: T) => void;
+  onChange?: StateCallback<T>;
 
   set(newValue: T): void;
   get(): T;
 }
 
-type StateSetter<T> = (newValue: T) => void;
+type StateCallback<T> = (newValue: T) => void;
 
-type StateDestructor<T> = [StateObject<T>, StateSetter<T>];
+type StateDestructor<T> = [StateObject<T>, StateCallback<T>];
