@@ -1,6 +1,6 @@
 import { useState } from "../lib/index";
 
-test("Set state", () => {
+test("Check if state has been changed", () => {
   const [checker, setValue] = useState("default");
 
   let newValue = "new value";
