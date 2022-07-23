@@ -1,8 +1,8 @@
-import { useState, registerEffect } from "../lib/index";
+import { createState, registerEffect } from "../lib/index";
 
 test("Check if registerEffect hook is being called", () => {
-  const [checker, setValue] = useState("default");
-  const [hasCalled, setCalled] = useState(false);
+  const [checker, setValue] = createState("default");
+  const [hasCalled, setCalled] = createState(false);
 
   registerEffect(() => {
     setCalled(true);
@@ -14,10 +14,10 @@ test("Check if registerEffect hook is being called", () => {
 });
 
 test("Check if registerEffect hook with multiple objects is called", () => {
-  const [checker, setValue] = useState("default");
-  const [checker2, setValue2] = useState("default");
-  const [hasCalled, setCalled] = useState(false);
-  const [hasCalled2, setCalled2] = useState(false);
+  const [checker, setValue] = createState("default");
+  const [checker2, setValue2] = createState("default");
+  const [hasCalled, setCalled] = createState(false);
+  const [hasCalled2, setCalled2] = createState(false);
 
   registerEffect(() => {
     setCalled(true);

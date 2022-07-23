@@ -1,7 +1,7 @@
-import { useState } from "../lib/index";
+import { createState } from "../lib/index";
 
 test("Reset state", () => {
-  const [checker, setValue] = useState("default");
+  const [checker, setValue] = createState("default");
 
   let firstNewValue = "new value";
   setValue(firstNewValue);

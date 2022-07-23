@@ -1,7 +1,7 @@
-import { useState } from "../lib/index";
+import { createState } from "../lib/index";
 
 test("Check if state has been changed", () => {
-  const [checker, setValue] = useState("default");
+  const [checker, setValue] = createState("default");
 
   let newValue = "new value";
   setValue(newValue);

@@ -1,6 +1,6 @@
 import State from "./State";
 
-function useState<T>(value: T): StateDestructor<T> {
+function createState<T>(value: T): StateDestructor<T> {
   const state = new State(value);
 
   const getter = state;
@@ -9,4 +9,4 @@ function useState<T>(value: T): StateDestructor<T> {
   return [getter, setter];
 }
 
-export default useState;
+export default createState;

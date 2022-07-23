@@ -1,4 +1,4 @@
-import useState from "./useState";
+import createState from "./createState";
 import registerEffect from "./registerEffect";
 
-export { useState, registerEffect };
+export { createState, registerEffect };
