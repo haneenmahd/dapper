@@ -1,4 +1,4 @@
-function useEffect<T>(
+function registerEffect<T>(
   callback: (newValue: T) => void,
   objects: StateObject<T> | StateObject<T>[]
 ) {
@@ -13,4 +13,4 @@ function useEffect<T>(
   objects.onChange = callback; // we don't need to call the onChange() function
 }
 
-export default useEffect;
+export default registerEffect;

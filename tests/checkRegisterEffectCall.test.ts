@@ -1,10 +1,10 @@
-import { useState, useEffect } from "../lib/index";
+import { useState, registerEffect } from "../lib/index";
 
 test("Set state", () => {
   const [checker, setValue] = useState("default");
   const [hasCalled, setCalled] = useState(false);
 
-  useEffect(() => {
+  registerEffect(() => {
     setCalled(true);
   }, [checker]);
 
