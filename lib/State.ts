@@ -1,4 +1,4 @@
-import type { StateObject } from "../types";
+import type { StateObject } from "./types";
 
 /**
  * Class responsible for storing data in the program.

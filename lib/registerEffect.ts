@@ -1,4 +1,4 @@
-import type { StateCallback, StateObject } from "../types";
+import type { StateCallback, StateObject } from "./types";
 
 /**
  * Register an effect for the state object specified in the argument.

@@ -7,7 +7,6 @@
     "moduleResolution": "node",
     "module": "ESNext",
     "esModuleInterop": true,
-    "types": ["./types"],
     "outDir": "dist",
     "declaration": true,
     "declarationDir": "./dist/types"
