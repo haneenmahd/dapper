@@ -1,7 +1,7 @@
 import type { StateCallback, StateObject } from "./types";
 
 /**
- * Register an effect for the state object specified in the argument.
+ * Registers an effect for the state object specified in the argument.
  * This function also supports specifying multiple state objects as arguments
  * when you want to have a common state for multiple state objects.
  *
