@@ -3,11 +3,14 @@
     "target": "ES6",
     "allowJs": true,
     "checkJs": true,
-    "typeRoots": ["node_modules/@types", "./types"],
+    "typeRoots": ["node_modules/@types"],
     "moduleResolution": "node",
     "module": "ESNext",
     "esModuleInterop": true,
-    "outDir": "dist"
+    "types": ["./types"],
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "./dist/types"
   },
   "include": ["lib", "types"]
 }

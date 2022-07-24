@@ -1,3 +1,5 @@
+import type { StateObject } from "../types";
+
 /**
  * Class responsible for storing data in the program.
  * Hooks like `createState` and `registerEffect` depends on this class.
