@@ -6,7 +6,8 @@
     "typeRoots": ["node_modules/@types", "./types"],
     "moduleResolution": "node",
     "module": "ESNext",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "outDir": "dist"
   },
   "include": ["lib", "types"]
 }
