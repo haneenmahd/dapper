@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "description": "State management for any Javascript app",
   "type": "module",
-  "types": "types/types.d.ts",
-  "main": "index.js",
+  "types": "dist/types",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "tsx": "tsx",
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "haneenmahd",
   "license": "ISC",
+  "repository": "TruelinesHQ/statex",
+  "homepage": "https://truelines.io/statex",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/haneenmahd"
+  },
   "devDependencies": {
     "@types/jest": "^28.1.6",
     "@types/node": "^18.0.5",
