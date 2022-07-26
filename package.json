@@ -7,8 +7,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "tsx": "tsx",
-    "build": "tsc"
+    "build": "pnpm run build:node && pnpm run build:web",
+    "build:web": "esbuild ./lib/index.ts --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/main.web.js",
+    "build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/main.node.js"
   },
   "keywords": [],
   "author": "haneenmahd",
@@ -23,9 +24,11 @@
     "@types/jest": "^28.1.6",
     "@types/node": "^18.0.5",
     "ts-jest": "^28.0.6",
+    "tsx": "^3.8.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "esbuild": "^0.14.50",
     "jest": "^28.1.3"
   }
 }
