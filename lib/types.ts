@@ -8,4 +8,8 @@ export interface StateObject<T> {
 
 export type StateCallback<T> = (newValue: T) => void;
 
-export type StateDestructor<T> = [StateObject<T>, StateCallback<T>];
+export type StateDestructor<T> = [
+  StateObject<T>,
+  StateCallback<T>,
+  StateObject<T>
+];
