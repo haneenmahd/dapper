@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "pnpm: build",
+      "detail": "pnpm run postpublish && pnpm run type-check && pnpm run build:node && pnpm run build:web"
+    }
+  ]
+}
