@@ -5,7 +5,7 @@ import type { StateDestructor } from "./types";
  * Creates a new state object and return an array with it's first value
  * as the getter and second value as an setter and the third as the instance
  * of the state. Instead of creating a new new instance of `State`, this
- * function should be used.
+ * function should be used. Expects a default value.
  *
  *
  * ```ts

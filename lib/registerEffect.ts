@@ -5,12 +5,13 @@ import type { StateCallback, StateObject } from "./types";
  * This function also supports specifying multiple state objects as arguments
  * when you want to have a common state for multiple state objects.
  *
- * ⚠️  This hook needs to be registered before making any changes in the state.
+ * ⚠️  This hook needs to be registered before making any changes in the state,
+ * if you wanna trigger all the changes every happened.
  * The best practice is to make sure this function is registered right after
  * creating the state.
  *
  * ```ts
- * createEffect((newValue) => {
+ * registerEffect((newValue) => {
  *  // callback when the state is set
  * }, state);
  * ```
