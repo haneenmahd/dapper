@@ -21,7 +21,7 @@ This will be available when the package is published.
 
 ## Documentation
 
-### Simple example
+### Example
 
 ```ts
 import { createState, registerEffect } from "statex";
@@ -30,7 +30,7 @@ import { createState, registerEffect } from "statex";
  * Creates a new state object and returns an array of three elements with
  * the first one as the getter and second one as the setter and the third
  * one is the instane of the state object, this might be needed in
- * scenarios when you need to use `registerEffect()` hook.
+ * scenarios when you need to use `registerEffect()` hook. Expects a default value in the first parameter.
  *
  * The getter is a function, so you would you have to call it to get the
  * state.
@@ -65,11 +65,40 @@ registerEffect((newValue) => {
 }, usernameInstance);
 
 // retrieving the value from the state.
-console.log(username());
+username();
 
 // setting the state, the callback inside the registerEffect() hook
 // is triggered
 setUsername("hello-world");
+```
+
+### APIs
+
+#### `createState()`
+
+Creates a new state object and return an array with it's first value as the getter and second value as an setter and the third as the instance of the state. Instead of creating a new new instance of `State`, this function should be used. Expects a default value in the first parameter.
+
+Usage:
+
+```ts
+const [isPrivate, setPrivacy] = createState(false);
+
+const value = isPrivate();
+
+setPrivacy(true);
+```
+
+#### `registerEffect()`
+
+Registers an effect for the state object specified in the argument. This function also supports specifying multiple state objects as arguments when you want to have a common state for multiple state objects.
+
+⚠️ This hook needs to be registered before making any changes in the state, if you wanna trigger all the changes every happened. The best practice is to make sure this function is registered right after
+creating the state.
+
+```ts
+registerEffect((newValue) => {
+  // callback when the state is set
+}, state);
 ```
 
 ## License
