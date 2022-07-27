@@ -8,7 +8,7 @@
   "scripts": {
     "test": "jest",
     "type-check": "tsc",
-    "build": "pnpm run type-check && pnpm run build:node && pnpm run build:web",
+    "build": "pnpm run postpublish && pnpm run type-check && pnpm run build:node && pnpm run build:web",
     "build:web": "esbuild ./lib/index.ts --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/main.web.js",
     "build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/main.node.js",
     "postpublish": "rm -rf dist"
