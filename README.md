@@ -41,7 +41,8 @@ import { createState, registerEffect } from "statex";
  * This function is type-safe and if the new value's type is not the same
  * as the new one, it will throw an error.
  *
- * The
+ * The instance is a object that has the value of the state object created
+ * by createEffect() hook.
  */
 const [username, setUsername, usernameInstance] = createState("anonymous");
 
