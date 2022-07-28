@@ -1,6 +1,6 @@
 {
   "name": "statex",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
   "description": "State management for any Javascript app",
   "type": "module",
   "types": "dist/types",
@@ -13,11 +13,20 @@
     "build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/main.node.js",
     "postpublish": "rm -rf dist"
   },
-  "keywords": [],
-  "author": "haneenmahd",
+  "keywords": [
+    "statex",
+    "state",
+    "fast",
+    "predictable",
+    "fast",
+    "performance",
+    "efficiency"
+  ],
+  "author": "Haneen Mahdin <",
   "license": "ISC",
   "repository": "TruelinesHQ/statex",
   "homepage": "https://truelines.io/statex",
+  "bugs": "https://github.com/TruelinesHQ/statex/issues",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/haneenmahd"
