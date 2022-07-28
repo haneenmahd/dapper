@@ -2,7 +2,7 @@ export interface StateObject<T> {
   value: T;
   onChange?: StateCallback<T>;
 
-  set(newValue: T): void;
+  set: StateCallback<T>;
   get(): T;
 }
 

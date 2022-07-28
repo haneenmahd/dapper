@@ -1,11 +1,11 @@
-import type { StateCallback, StateObject } from "./types";
+import type { StateCallback, StateObject } from './types';
 
 /**
  * Registers an effect for the state object specified in the argument.
  * This function also supports specifying multiple state objects as arguments
  * when you want to have a common state for multiple state objects.
  *
- * ⚠️  This hook needs to be registered before making any changes in the state,
+ * This hook needs to be registered before making any changes in the state,
  * if you wanna trigger all the changes every happened.
  * The best practice is to make sure this function is registered right after
  * creating the state.
@@ -24,7 +24,7 @@ function registerEffect<T>(
   objects: StateObject<T> | StateObject<T>[]
 ) {
   if (Array.isArray(objects)) {
-    objects.forEach((object) => {
+    objects.forEach(object => {
       object.onChange = callback;
     });
 

@@ -1,5 +1,5 @@
-import State from "./State";
-import type { StateDestructor } from "./types";
+import State from './State';
+import type { StateCallback, StateDestructor } from './types';
 
 /**
  * Creates a new state object and return an array with it's first value
@@ -26,7 +26,7 @@ function createState<T>(value: T): StateDestructor<T> {
   const state = new State(value);
 
   const getter = state;
-  const setter = (newValue: T) => state.set(newValue);
+  const setter: StateCallback<T> = newValue => state.set(newValue);
 
   return [getter, setter, state];
 }

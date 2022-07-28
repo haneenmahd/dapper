@@ -1,4 +1,4 @@
-import type { StateObject } from "./types";
+import type { StateCallback, StateObject } from './types';
 
 /**
  * Class responsible for storing data in the program.
@@ -11,7 +11,7 @@ import type { StateObject } from "./types";
  */
 class State<T> implements StateObject<T> {
   value: T;
-  onChange?: (newValue: T) => void;
+  onChange?: StateCallback<T>;
 
   /**
    *
@@ -19,7 +19,7 @@ class State<T> implements StateObject<T> {
    * @param value {T} default value
    * @param onChange onChange handler for triggering when the value has changed.
    */
-  constructor(value: T, onChange?: (newValue: T) => void) {
+  constructor(value: T, onChange?: StateCallback<T>) {
     this.value = value;
     this.onChange = onChange;
   }
