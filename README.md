@@ -24,7 +24,7 @@ This will be available when the package is published.
 ### Example
 
 ```ts
-import { createState, registerEffect } from "statex";
+import { createState, registerEffect } from 'statex';
 
 /**
  * Creates a new state object and returns an array of three elements with
@@ -44,7 +44,7 @@ import { createState, registerEffect } from "statex";
  * The instance is a object that has the value of the state object created
  * by createEffect() hook.
  */
-const [username, setUsername, usernameInstance] = createState("anonymous");
+const [username, setUsername, usernameInstance] = createState('anonymous');
 
 /**
  * Registers an hook to trigger whenever a change is made. If you need to
@@ -60,8 +60,8 @@ const [username, setUsername, usernameInstance] = createState("anonymous");
  * The second parameter is instance of the state object. You can get the
  * instance from the createState() hook.
  */
-registerEffect((newValue) => {
-  console.log(newValue);
+registerEffect(newValue => {
+	console.log(newValue);
 }, usernameInstance);
 
 // retrieving the value from the state.
@@ -69,7 +69,7 @@ username();
 
 // setting the state, the callback inside the registerEffect() hook
 // is triggered
-setUsername("hello-world");
+setUsername('hello-world');
 ```
 
 ### APIs
@@ -92,12 +92,12 @@ setPrivacy(true);
 
 Registers an effect for the state object specified in the argument. This function also supports specifying multiple state objects as arguments when you want to have a common state for multiple state objects.
 
-⚠️ This hook needs to be registered before making any changes in the state, if you wanna trigger all the changes every happened. The best practice is to make sure this function is registered right after
+This hook needs to be registered before making any changes in the state, if you wanna trigger all the changes every happened. The best practice is to make sure this function is registered right after
 creating the state.
 
 ```ts
-registerEffect((newValue) => {
-  // callback when the state is set
+registerEffect(newValue => {
+	// callback when the state is set
 }, state);
 ```
 
