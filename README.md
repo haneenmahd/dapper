@@ -61,7 +61,7 @@ const [username, setUsername, usernameInstance] = createState('anonymous');
  * instance from the createState() hook.
  */
 registerEffect(newValue => {
-  console.log(newValue);
+	console.log(newValue);
 }, usernameInstance);
 
 // retrieving the value from the state.
@@ -97,7 +97,7 @@ creating the state.
 
 ```ts
 registerEffect(newValue => {
-  // callback when the state is set
+	// callback when the state is set
 }, state);
 ```
 

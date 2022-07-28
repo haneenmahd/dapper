@@ -23,12 +23,12 @@ import type { StateCallback, StateDestructor } from './types';
  * @returns {StateDestructor<T>} Returns a getter and a setter
  */
 function createState<T>(value: T): StateDestructor<T> {
-  const state = new State(value);
+	const state = new State(value);
 
-  const getter = state;
-  const setter: StateCallback<T> = newValue => state.set(newValue);
+	const getter = state;
+	const setter: StateCallback<T> = newValue => state.set(newValue);
 
-  return [getter, setter, state];
+	return [getter, setter, state];
 }
 
 export default createState;
