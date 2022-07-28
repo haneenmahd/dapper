@@ -18,7 +18,8 @@
     "build": "pnpm run postpublish && pnpm run type-check && pnpm run build:node && pnpm run build:web",
     "build:web": "esbuild ./lib/index.ts --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/main.web.js",
     "build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/main.node.js",
-    "postpublish": "rm -rf dist"
+    "postpublish": "rm -rf dist",
+    "pretest": "pnpm run format && pnpm run format"
   },
   "keywords": [
     "statex",
