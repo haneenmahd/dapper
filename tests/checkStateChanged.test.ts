@@ -6,5 +6,5 @@ test('Check if state has been changed', () => {
 	const newValue = 'new value';
 	setValue(newValue);
 
-	expect(checker.get()).toEqual(newValue);
+	expect(checker()).toEqual(newValue);
 });
