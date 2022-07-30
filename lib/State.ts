@@ -23,7 +23,7 @@ class State<T> implements StateObject<T> {
 		this.value = value;
 		this.onChange = onChange;
 	}
-	
+
 	/**
 	 * Checks if the value has been updated or not to optimise performance.
 	 *
@@ -31,8 +31,8 @@ class State<T> implements StateObject<T> {
 	 * @param {T} newValue
 	 * @returns {boolean}
 	 */
-	verifyValue(newValue: T) {
-		return newValue === this.value;
+	verifyValue(newValue: T): boolean {
+		return this.value !== newValue;
 	}
 
 	/**
