@@ -31,7 +31,7 @@ class State<T> implements StateObject<T> {
 	 * @param {T} newValue
 	 * @returns {boolean}
 	 */
-	verifyValue(newValue: string) {
+	verifyValue(newValue: T) {
 		return newValue === this.value;
 	}
 
