@@ -25,16 +25,29 @@ class State<T> implements StateObject<T> {
 	}
 
 	/**
+	 * Checks if the value has been updated or not to optimise performance.
+	 *
+	 * @type {T} Generic type for the value
+	 * @param {T} newValue
+	 * @returns {boolean}
+	 */
+	verifyValue(newValue: T): boolean {
+		return this.value !== newValue;
+	}
+
+	/**
 	 * Sets the value to the `newValue` argument.
 	 *
 	 * @type {T} Generic type for the value
 	 * @param newValue {T}
 	 */
 	set(newValue: T) {
-		this.value = newValue;
+		if (this.verifyValue(newValue)) {
+			this.value = newValue;
 
-		if (this.onChange) {
-			this.onChange(this.value);
+			if (this.onChange) {
+				this.onChange(this.value);
+			}
 		}
 	}
 
