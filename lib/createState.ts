@@ -25,7 +25,7 @@ import type { StateCallback, StateDestructor } from './types';
 function createState<T>(value: T): StateDestructor<T> {
 	const state = new State(value);
 
-	const getter = state;
+	const getter = () => state.get();
 	const setter: StateCallback<T> = newValue => state.set(newValue);
 
 	return [getter, setter, state];

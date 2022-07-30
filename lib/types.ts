@@ -6,10 +6,12 @@ export interface StateObject<T> {
 	get(): T;
 }
 
+export type StateGetter<T> = () => T;
+
 export type StateCallback<T> = (newValue: T) => void;
 
 export type StateDestructor<T> = [
-	StateObject<T>,
+	StateGetter<T>,
 	StateCallback<T>,
 	StateObject<T>
 ];
