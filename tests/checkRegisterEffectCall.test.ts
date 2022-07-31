@@ -6,8 +6,6 @@ test('Check if registerEffect hook is being called', () => {
 
 	registerEffect(() => {
 		setCalled(true);
-
-		console.log(`New value is ${checker()}`);
 	}, [checkerInstance]);
 
 	setValue('new value');
@@ -16,17 +14,14 @@ test('Check if registerEffect hook is being called', () => {
 });
 
 test('Check if registerEffect hook with multiple objects is called', () => {
-	const [checker, setValue, checkerInstance] = createState('default');
-	const [checker2, setValue2, checker2Instance] = createState('default');
+	const [, setValue, checkerInstance] = createState('default');
+	const [, setValue2, checker2Instance] = createState('default');
 	const [hasCalled, setCalled] = createState(false);
 	const [hasCalled2, setCalled2] = createState(false);
 
 	registerEffect(() => {
 		setCalled(true);
 		setCalled2(true);
-
-		console.log(`New value is ${checker()}`);
-		console.log(`New value is ${checker2()}`);
 	}, [checkerInstance, checker2Instance]);
 
 	setValue('new value');
