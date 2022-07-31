@@ -1,5 +1,5 @@
-import ValidationError from './errors/ValidationError';
 import type { StateCallback, StateObject } from './types';
+import ValidationError from './errors/ValidationError';
 
 /**
  * Class responsible for storing data in the program.
