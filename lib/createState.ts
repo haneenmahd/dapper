@@ -20,7 +20,7 @@ import type { StateCallback, StateDestructor } from './types';
  *
  * @type {T} Generic type for the value
  * @param value {T} Default value for the state
- * @returns {StateDestructor<T>} Returns a getter and a setter
+ * @returns {StateDestructor<T>} Returns a getter and a setter and the instance itself.
  */
 function createState<T>(value: T): StateDestructor<T> {
 	const state = new State(value);
