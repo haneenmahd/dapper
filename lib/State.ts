@@ -1,3 +1,4 @@
+import ValidationError from './errors/ValidationError';
 import type { StateCallback, StateObject } from './types';
 
 /**
@@ -26,12 +27,22 @@ class State<T> implements StateObject<T> {
 
 	/**
 	 * Checks if the value has been updated or not to optimise performance.
+	 * Also does type checking.
 	 *
 	 * @type {T} Generic type for the value
 	 * @param {T} newValue
 	 * @returns {boolean}
 	 */
 	verifyValue(newValue: T): boolean {
+		const recievedType = typeof newValue;
+		const valueType = typeof this.value;
+
+		if (typeof newValue !== valueType) {
+			throw new ValidationError(
+				`Expected type of ${valueType} but recieved ${recievedType}`
+			);
+		}
+
 		return this.value !== newValue;
 	}
 
