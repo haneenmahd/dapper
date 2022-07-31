@@ -1,7 +1,7 @@
 import { createState, registerEffect } from '../lib/index';
 
 test('Check if registerEffect hook is being called', () => {
-	const [checker, setValue, checkerInstance] = createState('default');
+	const [, setValue, checkerInstance] = createState('default');
 	const [hasCalled, setCalled] = createState(false);
 
 	registerEffect(() => {
