@@ -1,5 +1,5 @@
 import type { StateCallback, StateObject } from './types';
-import ValidationError from './errors/ValidationError';
+import TypeError from './errors/TypeError';
 
 /**
  * Class responsible for storing data in the program.
@@ -38,7 +38,7 @@ class State<T> implements StateObject<T> {
 		const valueType = typeof this.value;
 
 		if (typeof newValue !== valueType) {
-			throw new ValidationError(
+			throw new TypeError(
 				`Expected type of ${valueType} but recieved ${recievedType}`
 			);
 		}
