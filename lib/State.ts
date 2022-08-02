@@ -1,4 +1,5 @@
 import type { StateCallback, StateObject } from './types';
+import TypeError from './errors/TypeError';
 
 /**
  * Class responsible for storing data in the program.
@@ -26,12 +27,22 @@ class State<T> implements StateObject<T> {
 
 	/**
 	 * Checks if the value has been updated or not to optimise performance.
+	 * Also does type checking.
 	 *
 	 * @type {T} Generic type for the value
 	 * @param {T} newValue
 	 * @returns {boolean}
 	 */
 	verifyValue(newValue: T): boolean {
+		const recievedType = typeof newValue;
+		const valueType = typeof this.value;
+
+		if (typeof newValue !== valueType) {
+			throw new TypeError(
+				`Expected type of ${valueType} but recieved ${recievedType}`
+			);
+		}
+
 		return this.value !== newValue;
 	}
 
