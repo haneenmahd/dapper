@@ -11,7 +11,7 @@
 - 💨 **Fast** − Our APIs just run lightning fast, no more slowdowns.
 - 🔋 **Efficient** - To reduce the consumption of energy, we have optimised it.
 - ⛑ **Type Safe** - To prevent type errors and bugs, we have made the framework type-safe.
-- 🛳 **Portable** - This library works accorss web and Node environments. You can use this library together with React or any other Javascript UI libraries.
+- 🛳 **Portable** - This framework works accorss web and Node environments. You can use this library together with React or any other Javascript UI libraries.
 - 😵 **Tiny (>2kb)** - Too much lightweight, no more large bundle sizes
 - 🤓 **Extensible** - Extend the `State` class to create your own custom state object.
 - 🫥 **Asynchronous** - If you are fed-up with how messy it is to save state inside a asynchronous operation, say goodbye to it.
