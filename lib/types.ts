@@ -15,3 +15,5 @@ export type StateDestructor<T> = [
 	StateCallback<T>,
 	StateObject<T>
 ];
+
+export type StateInitialEffect<T> = (initialValue: T) => void;
