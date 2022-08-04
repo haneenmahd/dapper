@@ -22,6 +22,41 @@ This will be available when the package is published.
 
 ## Documentation
 
+### APIs
+
+#### `createState()`
+
+Creates a new state object and return an array with it's first value as the getter and second value as an setter and the third as the instance of the state. Instead of creating a new new instance of `State`, this function should be used. Expects a default value in the first parameter.
+
+Usage:
+
+```ts
+const [isPrivate, setPrivacy] = createState(false);
+
+const value = isPrivate();
+
+setPrivacy(true);
+```
+
+**With Initial Effect**:
+
+```ts
+const [isPrivate, setPrivacy] = createState(false, initialValue => /* do something with the value */);
+```
+
+#### `registerEffect()`
+
+Registers an effect for the state object specified in the argument. This function also supports specifying multiple state objects as arguments when you want to have a common state for multiple state objects.
+
+This hook needs to be registered before making any changes in the state, if you wanna trigger all the changes every happened. The best practice is to make sure this function is registered right after
+creating the state.
+
+```ts
+registerEffect(newValue => {
+	// callback when the state is set
+}, state);
+```
+
 ### Example
 
 ```ts
@@ -31,7 +66,12 @@ import { createState, registerEffect } from 'statex';
  * Creates a new state object and returns an array of three elements with
  * the first one as the getter and second one as the setter and the third
  * one is the instane of the state object, this might be needed in
- * scenarios when you need to use `registerEffect()` hook. Expects a default value in the first parameter.
+ * scenarios when you need to use `registerEffect()` hook
+ * Expects a default value in the first parameter. The secon
+ * parameter is an optional initial effect callback. I
+ * passes in the initial value passed in to the `createState
+ * function. This was created in order to fix the
+ * accessing the value before it was initialised error.
  *
  * The getter is a function, so you would you have to call it to get the
  * state.
@@ -43,7 +83,7 @@ import { createState, registerEffect } from 'statex';
  * as the new one, it will throw an error.
  *
  * The instance is a object that has the value of the state object created
- * by createEffect() hook.
+ * by registerEfffect() hook.
  */
 const [username, setUsername, usernameInstance] = createState('anonymous');
 
@@ -71,35 +111,6 @@ username();
 // setting the state, the callback inside the registerEffect() hook
 // is triggered
 setUsername('hello-world');
-```
-
-### APIs
-
-#### `createState()`
-
-Creates a new state object and return an array with it's first value as the getter and second value as an setter and the third as the instance of the state. Instead of creating a new new instance of `State`, this function should be used. Expects a default value in the first parameter.
-
-Usage:
-
-```ts
-const [isPrivate, setPrivacy] = createState(false);
-
-const value = isPrivate();
-
-setPrivacy(true);
-```
-
-#### `registerEffect()`
-
-Registers an effect for the state object specified in the argument. This function also supports specifying multiple state objects as arguments when you want to have a common state for multiple state objects.
-
-This hook needs to be registered before making any changes in the state, if you wanna trigger all the changes every happened. The best practice is to make sure this function is registered right after
-creating the state.
-
-```ts
-registerEffect(newValue => {
-	// callback when the state is set
-}, state);
 ```
 
 ## License
