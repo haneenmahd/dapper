@@ -1,6 +1,4 @@
-<!-- <img height="300px" src="https://github.com/TruelinesHQ/statex/blob/main/resources/banner.png" alt="Banner" /> -->
-
-<img src="resources/banner.png" alt="Banner" />
+<img height="300px" src="https://github.com/TruelinesHQ/statex/blob/main/resources/banner.png" alt="Banner" />
 
 <br />
 
