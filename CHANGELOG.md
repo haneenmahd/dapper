@@ -1,5 +1,3 @@
-# 🌮 v1.0.0-beta
-
 ## What's Changed
 
 - [🥸🤠🥳]: Add new APIs by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/1
@@ -8,6 +6,7 @@
 - 🥸: Doesn't return a getter function (#4) by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/5
 - Type safety by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/6
 - Add support for initial effect by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/7
+- Extensibility by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/8
 
 ## New Contributors
 
