@@ -42,6 +42,21 @@ setPrivacy(true);
 const [isPrivate, setPrivacy] = createState(false, initialValue => /* do something with the value */);
 ```
 
+#### `createStateWith()`
+
+Alternative to the `createState()` API but instead also adds support for extensibility of a custom state class. Althought the return value of this function is same as the `createState()` API, the function doesn't expect a value directly and instead the instance of the extended class. But you can pass the `initialEffect` as the second argument.
+
+```ts
+class CustomClass<T> extends State<T> {
+	...
+}
+
+const [data, setData] = createState(
+	new CustomClass(...),
+	initialValue => console.log(initialValue)
+);
+```
+
 #### `registerEffect()`
 
 Registers an effect for the state object specified in the argument. This function also supports specifying multiple state objects as arguments when you want to have a common state for multiple state objects.
