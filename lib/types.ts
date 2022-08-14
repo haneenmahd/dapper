@@ -17,3 +17,18 @@ export type StateDestructor<T> = [
 ];
 
 export type StateInitialEffect<T> = (initialValue: T) => void;
+
+// extended state object types
+export type ExtendedStateObject<T> = StateObject<T>;
+
+export type ExtendedStateGetter<T> = () => T;
+
+export type ExtendedStateCallback<T> = (newValue: T) => void;
+
+export type ExtendedStateDestructor<T> = [
+	ExtendedStateGetter<T>,
+	ExtendedStateCallback<T>,
+	ExtendedStateObject<T>
+];
+
+export type ExtendedStateInitialEffect<T> = (initialValue: T) => void;
