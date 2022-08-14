@@ -22,6 +22,28 @@ This will be available when the package is published.
 
 ### APIs
 
+### `State`
+
+The `State` class is the main API that powers all of the other APIs. You can create your own custom state class by extending this one. This API introduces a whole another world of possibilities and provides more flexibility and customasibility.
+
+```ts
+import { State } from 'statex';
+
+class CredentialsStore extends State<string> {
+	verifyValue(value: string) {
+		return value.length > 5;
+	}
+
+	// You can also override other methods like
+	get() {}
+	set() {}
+	onChange() {}
+
+	// You could also add some of your custom functions
+	// to organise your code.
+}
+```
+
 #### `createState()`
 
 Creates a new state object and return an array with it's first value as the getter and second value as an setter and the third as the instance of the state. Instead of creating a new new instance of `State`, this function should be used. Expects a default value in the first parameter.
@@ -40,6 +62,21 @@ setPrivacy(true);
 
 ```ts
 const [isPrivate, setPrivacy] = createState(false, initialValue => /* do something with the value */);
+```
+
+#### `createStateWith()`
+
+Alternative to the `createState()` API but instead also adds support for extensibility of a custom state class. Althought the return value of this function is same as the `createState()` API, the function doesn't expect a value directly and instead the instance of the extended class. But you can pass the `initialEffect` as the second argument.
+
+```ts
+class CustomClass<T> extends State<T> {
+	...
+}
+
+const [data, setData] = createState(
+	new CustomClass(...),
+	initialValue => console.log(initialValue)
+);
 ```
 
 #### `registerEffect()`
