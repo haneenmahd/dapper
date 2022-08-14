@@ -1,58 +1,61 @@
 {
-  "name": "statex",
-  "version": "1.0.0-beta",
-  "description": "State management for any Javascript app",
-  "type": "module",
-  "types": "dist/types",
-  "main": "dist/index.js",
-  "files": [
-    "dist",
-    "lib"
-  ],
-  "scripts": {
-    "type-check": "tsc",
-    "format": "prettier --write \"{lib,tests}/**/*.ts\" \"**/*.md\"",
-    "format:check": "prettier --list-different \"{lib,tests}/**/*.ts\" \"**/*.md\"",
-    "lint": "eslint --ext ts lib tests",
-    "test": "pnpm run lint && jest",
-    "build": "pnpm run postpublish && pnpm run type-check && pnpm run build:node && pnpm run build:web",
-    "build:web": "esbuild ./lib/index.ts --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/main.web.js",
-    "build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/main.node.js",
-    "postpublish": "rm -rf dist",
-    "pretest": "pnpm run format && pnpm run format"
-  },
-  "keywords": [
-    "statex",
-    "state",
-    "fast",
-    "predictable",
-    "fast",
-    "performance",
-    "efficiency"
-  ],
-  "author": "Haneen Mahdin <citrus.canoes0b@icloud.com> (https://github.com/haneenmahd)",
-  "license": "ISC",
-  "repository": "TruelinesHQ/statex",
-  "homepage": "https://truelines.io/statex",
-  "bugs": "https://github.com/TruelinesHQ/statex/issues",
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/haneenmahd"
-  },
-  "devDependencies": {
-    "@types/jest": "^28.1.6",
-    "@types/node": "^18.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
-    "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "prettier": "^2.7.1",
-    "ts-jest": "^28.0.6",
-    "tsx": "^3.8.0",
-    "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "esbuild": "^0.14.50",
-    "jest": "^28.1.3"
-  }
+	"name": "statex",
+	"version": "1.0.0-beta",
+	"description": "State management for any Javascript app",
+	"type": "module",
+	"types": "dist/types",
+	"main": "dist/index.js",
+	"files": [
+		"dist",
+		"lib"
+	],
+	"scripts": {
+		"type-check": "tsc",
+		"format": "prettier --write \"{lib,tests}/**/*.ts\" \"**/*.md\"",
+		"format:check": "prettier --list-different \"{lib,tests}/**/*.ts\" \"**/*.md\"",
+		"lint": "eslint --ext ts lib tests",
+		"test": "pnpm run lint && jest",
+		"build": "pnpm run postpublish && pnpm run type-check && pnpm run build:node && pnpm run build:web",
+		"build:web": "esbuild ./lib/index.ts --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/main.web.js",
+		"build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/main.node.js",
+		"postpublish": "rm -rf dist",
+		"pretest": "pnpm run format && pnpm run format",
+		"benchmark": "tsx benchmark/benchmark.ts"
+	},
+	"keywords": [
+		"statex",
+		"state",
+		"fast",
+		"predictable",
+		"fast",
+		"performance",
+		"efficiency"
+	],
+	"author": "Haneen Mahdin <citrus.canoes0b@icloud.com> (https://github.com/haneenmahd)",
+	"license": "ISC",
+	"repository": "TruelinesHQ/statex",
+	"homepage": "https://truelines.io/statex",
+	"bugs": "https://github.com/TruelinesHQ/statex/issues",
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/sponsors/haneenmahd"
+	},
+	"devDependencies": {
+		"@types/jest": "^28.1.6",
+		"@types/node": "^18.0.5",
+		"@typescript-eslint/eslint-plugin": "^5.31.0",
+		"@typescript-eslint/parser": "^5.31.0",
+		"eslint": "^8.20.0",
+		"eslint-config-prettier": "^8.5.0",
+		"prettier": "^2.7.1",
+		"ts-jest": "^28.0.6",
+		"tsx": "^3.8.0",
+		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"esbuild": "^0.14.50",
+		"jest": "^28.1.3",
+		"mitata": "^0.1.6",
+		"redux": "^4.2.0"
+	}
 }
