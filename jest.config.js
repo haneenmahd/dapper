@@ -1,5 +1,5 @@
 export default {
-  preset: "ts-jest",
-  transform: {},
-  transformIgnorePatterns: ["<rootDir>/node_modules/"],
+	preset: 'ts-jest',
+	transform: {},
+	transformIgnorePatterns: ['<rootDir>/node_modules/']
 };
