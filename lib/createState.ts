@@ -1,9 +1,5 @@
 import State from './State';
-import type {
-	StateCallback,
-	StateDestructor,
-	StateInitialEffect
-} from './types';
+import type { StateObject, StateInitialEffect } from './types';
 
 /**
  * Creates a new state object and return an array with it's first value
@@ -45,17 +41,14 @@ import type {
 function createState<T>(
 	value: T,
 	initalEffect?: StateInitialEffect<T>
-): StateDestructor<T> {
+): StateObject<T> {
 	const state = new State(value);
 
 	if (typeof initalEffect !== 'undefined') {
 		initalEffect(state.get());
 	}
 
-	const getter = () => state.get();
-	const setter: StateCallback<T> = newValue => state.set(newValue);
-
-	return [getter, setter, state];
+	return state;
 }
 
 export default createState;

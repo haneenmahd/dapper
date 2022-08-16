@@ -1,10 +1,5 @@
 import State from './State';
-import type {
-	ExtendedStateCallback,
-	ExtendedStateDestructor,
-	ExtendedStateInitialEffect,
-	ExtendedStateObject
-} from './types';
+import type { ExtendedStateInitialEffect, ExtendedStateObject } from './types';
 import InstanceError from './errors/InstanceError';
 
 /**
@@ -18,7 +13,7 @@ import InstanceError from './errors/InstanceError';
 function createStateWith<T>(
 	extendedState: ExtendedStateObject<T>,
 	initalEffect?: ExtendedStateInitialEffect<T>
-): ExtendedStateDestructor<T> {
+): ExtendedStateObject<T> {
 	// we don't have to create another instance, as the instance is passed in
 	// as the parameter `extendedState`. This allows more flexibility and
 	// customisability at the same time.
@@ -28,11 +23,7 @@ function createStateWith<T>(
 			initalEffect(extendedState.get());
 		}
 
-		const getter = () => extendedState.get();
-		const setter: ExtendedStateCallback<T> = newValue =>
-			extendedState.set(newValue);
-
-		return [getter, setter, extendedState];
+		return extendedState;
 	} else {
 		throw new InstanceError(
 			`${extendedState} is not an instance of the State class.`
