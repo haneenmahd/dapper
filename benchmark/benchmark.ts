@@ -3,13 +3,13 @@ import { createStore } from 'redux';
 import { createState, registerEffect } from '../lib';
 
 baseline('StateX', () => {
-	const [getter, setter, instance] = createState(0);
+	const counter = createState(0);
 
-	registerEffect(() => {}, [instance]);
+	registerEffect(() => {}, [counter]);
 
-	setter(getter() + 1);
-	setter(getter() + 1);
-	setter(getter() - 1);
+	counter.set(counter.get() + 1);
+	counter.set(counter.get() + 1);
+	counter.set(counter.get() - 1);
 });
 
 bench('Redux', () => {
