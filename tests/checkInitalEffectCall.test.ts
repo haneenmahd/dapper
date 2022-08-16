@@ -1,21 +1,21 @@
 import { createState } from '../lib/index';
 
 test('Check if the initial effect function is called', () => {
-	const [checker, setChecker] = createState(false);
+	const checker = createState(false);
 
 	createState('hello', () => {
-		setChecker(true);
+		checker.set(true);
 	});
 
-	expect(checker()).toEqual(true);
+	expect(checker.get()).toEqual(true);
 });
 
 test('Check if the initial effect function is called and can access the initial value', () => {
-	const [checker, setChecker] = createState('');
+	const checker = createState('');
 
 	createState('hello', newValue => {
-		setChecker(newValue);
+		checker.set(newValue);
 	});
 
-	expect(checker()).not.toBe('');
+	expect(checker.get()).not.toBe('');
 });

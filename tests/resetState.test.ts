@@ -1,13 +1,13 @@
 import { createState } from '../lib/index';
 
 test('Reset state', () => {
-	const [checker, setValue] = createState('default');
+	const checker = createState('default');
 
 	const firstNewValue = 'new value';
-	setValue(firstNewValue);
+	checker.set(firstNewValue);
 
 	const finalNewValue = 'final value';
-	setValue(finalNewValue);
+	checker.set(finalNewValue);
 
-	expect(checker()).toEqual(finalNewValue);
+	expect(checker.get()).toEqual(finalNewValue);
 });

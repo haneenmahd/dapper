@@ -1,32 +1,32 @@
 import { createState, registerEffect } from '../lib/index';
 
 test('Check if registerEffect hook is being called', () => {
-	const [, setValue, checkerInstance] = createState('default');
-	const [hasCalled, setCalled] = createState(false);
+	const value = createState('default');
+	const hasCalled = createState(false);
 
 	registerEffect(() => {
-		setCalled(true);
-	}, [checkerInstance]);
+		hasCalled.set(true);
+	}, [value]);
 
-	setValue('new value');
+	value.set('new value');
 
-	expect(hasCalled()).toEqual(true);
+	expect(hasCalled.get()).toEqual(true);
 });
 
 test('Check if registerEffect hook with multiple objects is called', () => {
-	const [, setValue, checkerInstance] = createState('default');
-	const [, setValue2, checker2Instance] = createState('default');
-	const [hasCalled, setCalled] = createState(false);
-	const [hasCalled2, setCalled2] = createState(false);
+	const value = createState('default');
+	const value2 = createState('default');
+	const hasCalled = createState(false);
+	const hasCalled2 = createState(false);
 
 	registerEffect(() => {
-		setCalled(true);
-		setCalled2(true);
-	}, [checkerInstance, checker2Instance]);
+		hasCalled.set(true);
+		hasCalled2.set(true);
+	}, [value, value2]);
 
-	setValue('new value');
-	setValue2('new value - 2');
+	value.set('new value');
+	value.set('new value - 2');
 
-	expect(hasCalled()).toEqual(true);
-	expect(hasCalled2()).toEqual(true);
+	expect(hasCalled.get()).toEqual(true);
+	expect(hasCalled2.get()).toEqual(true);
 });
