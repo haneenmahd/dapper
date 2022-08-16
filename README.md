@@ -27,7 +27,7 @@ This will be available when the package is published.
 The `State` class is the main API that powers all of the other APIs. You can create your own custom state class by extending this one. This API introduces a whole another world of possibilities and provides more flexibility and customasibility.
 
 ```ts
-import { State } from 'statex';
+import { State, createState } from 'statex';
 
 class CredentialsStore extends State<string> {
 	verifyValue(value: string) {
@@ -39,9 +39,15 @@ class CredentialsStore extends State<string> {
 	set() {}
 	onChange() {}
 
-	// You could also add some of your custom functions
+	// You could also add a custom action
 	// to organise your code.
+	fetchData() {}
 }
+
+// you can call the actions inside your state
+const [name, setName, nameInstance] = createStateWith(CredentialsStore('some-name'));
+
+nameInstance.get();
 ```
 
 #### `createState()`
