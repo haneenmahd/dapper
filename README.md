@@ -79,7 +79,7 @@ class CustomClass<T> extends State<T> {
 	...
 }
 
-const [data, setData] = createState(
+const [data, setData] = createStateWith(
 	new CustomClass(...),
 	initialValue => console.log(initialValue)
 );
