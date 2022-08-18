@@ -1,4 +1,4 @@
-# 🤟 1.0.0-beta.0
+# 👻 1.0.0-beta.0
 
 ## What's Changed
 
@@ -9,6 +9,7 @@
 - Type safety by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/6
 - Add support for initial effect by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/7
 - Extensibility by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/8
+- 😎: Dump react-like state management by @haneenmahd in https://github.com/TruelinesHQ/statex/pull/9
 
 ## New Contributors
 
