@@ -1,4 +1,4 @@
-import type { StateCallback, StateObject } from './types';
+import type { StateCallback, StateChangeCallback, StateObject } from './types';
 import TypeError from './errors/TypeError';
 
 /**
@@ -12,17 +12,15 @@ import TypeError from './errors/TypeError';
  */
 class State<T> implements StateObject<T> {
 	value: T;
-	onChange?: StateCallback<T>;
+	onChange?: StateChangeCallback<T>;
 
 	/**
 	 *
 	 * @type {T} Generic type for the value
 	 * @param value {T} default value
-	 * @param onChange onChange handler for triggering when the value has changed.
 	 */
-	constructor(value: T, onChange?: StateCallback<T>) {
+	constructor(value: T) {
 		this.value = value;
-		this.onChange = onChange;
 	}
 
 	/**
@@ -57,7 +55,7 @@ class State<T> implements StateObject<T> {
 			this.value = newValue;
 
 			if (this.onChange) {
-				this.onChange(this.value);
+				this.onChange(() => this.value);
 			}
 		}
 	}

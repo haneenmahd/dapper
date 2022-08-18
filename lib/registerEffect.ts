@@ -1,4 +1,4 @@
-import type { StateCallback, StateObject } from './types';
+import type { StateCallback, StateChangeCallback, StateObject } from './types';
 
 /**
  * Registers an effect for the state object specified in the argument.
@@ -20,7 +20,7 @@ import type { StateCallback, StateObject } from './types';
  * @param objects {StateObject<T> | StateObject<T>[]}
  */
 function registerEffect<T>(
-	callback: StateCallback<T>,
+	callback: StateChangeCallback<T>,
 	objects: StateObject<T> | StateObject<T>[]
 ) {
 	if (Array.isArray(objects)) {
