@@ -1,4 +1,4 @@
-import type { StateCallback, StateChangeCallback, StateObject } from './types';
+import type { StateChangeCallback, StateObject } from './types';
 import TypeError from './errors/TypeError';
 
 /**
