@@ -38,7 +38,7 @@ name.onChange = newValue => {
 **Extended State**:
 
 ```ts
-import { State } from 'statex';
+import { State, createState } from 'statex';
 
 class CredentialsStore extends State<string> {
 	verifyValue(value: string) {
@@ -51,9 +51,15 @@ class CredentialsStore extends State<string> {
 
 	onChange = newValue => {};
 
-	// You could also add some of your custom functions
+	// You could also add a custom action
 	// to organise your code.
+	fetchData() {}
 }
+
+// you can call the actions inside your state
+const [name, setName, nameInstance] = createStateWith(CredentialsStore('some-name'));
+
+nameInstance.get();
 ```
 
 #### `createState()`
