@@ -3,7 +3,7 @@ import TypeError from './errors/TypeError';
 
 /**
  * Class responsible for storing data in the program.
- * Hooks like `createState` and `registerEffect` depends on this class.
+ * The `createState` and `createStateWith` hooks depends on this class.
  * This class will be exported when ready for extensible purposes in production.
  *
  * @implements {StateObject<T>}

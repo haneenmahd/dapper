@@ -1,6 +1,6 @@
 import { createState } from '../lib/index';
 
-test('Check if registerEffect hook is being called', () => {
+test('Check if onChange hook is being called', () => {
 	const value = createState('default');
 	const hasCalled = createState(false);
 
@@ -13,7 +13,7 @@ test('Check if registerEffect hook is being called', () => {
 	expect(hasCalled.get()).toEqual(true);
 });
 
-test('Check if registerEffect hook with multiple objects is called', () => {
+test('Check if onChange hook with multiple objects is called', () => {
 	const value = createState('default');
 	const value2 = createState('default');
 	const hasCalled = createState(false);

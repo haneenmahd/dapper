@@ -12,7 +12,6 @@
 - 🛳 **Portable** - This framework works accorss web and Node environments. You can use this library together with React or any other Javascript UI libraries.
 - 😵 **Tiny (>2kb)** - Too much lightweight, no more large bundle sizes
 - 🤓 **Extensible** - Extend the `State` class to create your own custom state object.
-- 🫥 **Asynchronous** - If you are fed-up with how messy it is to save state inside a asynchronous operation, say goodbye to it.
 
 ## Installation
 
@@ -26,6 +25,18 @@ This will be available when the package is published.
 
 The `State` class is the main API that powers all of the other APIs. You can create your own custom state class by extending this one. This API introduces a whole another world of possibilities and provides more flexibility and customasibility.
 
+**Classic**
+
+```ts
+const name = new State(10);
+
+name.onChange = newValue => {
+	console.log(newValue());
+};
+```
+
+**Extended State**:
+
 ```ts
 import { State } from 'statex';
 
@@ -37,7 +48,8 @@ class CredentialsStore extends State<string> {
 	// You can also override other methods like
 	get() {}
 	set() {}
-	onChange() {}
+
+	onChange = newValue => {};
 
 	// You could also add some of your custom functions
 	// to organise your code.
@@ -46,22 +58,22 @@ class CredentialsStore extends State<string> {
 
 #### `createState()`
 
-Creates a new state object and return an array with it's first value as the getter and second value as an setter and the third as the instance of the state. Instead of creating a new new instance of `State`, this function should be used. Expects a default value in the first parameter.
+Creates a new `State` object and returns an instance of it. This function is just a simplified form of the `State` class. If you wanna read about the usage, you might need to checkout the [State](https://github.com/TruelinesHQ/statex#state) API.
 
 Usage:
 
 ```ts
-const [isPrivate, setPrivacy] = createState(false);
+const isPrivate = createState(false);
 
-const value = isPrivate();
+isPrivate.get();
 
-setPrivacy(true);
+isPrivate.set(true);
 ```
 
 **With Initial Effect**:
 
 ```ts
-const [isPrivate, setPrivacy] = createState(false, initialValue => /* do something with the value */);
+const isPrivate = createState(false);
 ```
 
 #### `createStateWith()`
@@ -73,29 +85,15 @@ class CustomClass<T> extends State<T> {
 	...
 }
 
-const [data, setData] = createState(
-	new CustomClass(...),
-	initialValue => console.log(initialValue)
+const state = createStateWith(
+	new CustomClass(...)
 );
-```
-
-#### `registerEffect()`
-
-Registers an effect for the state object specified in the argument. This function also supports specifying multiple state objects as arguments when you want to have a common state for multiple state objects.
-
-This hook needs to be registered before making any changes in the state, if you wanna trigger all the changes every happened. The best practice is to make sure this function is registered right after
-creating the state.
-
-```ts
-registerEffect(newValue => {
-	// callback when the state is set
-}, state);
 ```
 
 ### Example
 
 ```ts
-import { createState, registerEffect } from 'statex';
+import { createState } from 'statex';
 
 /**
  * Creates a new state object and returns an array of three elements with
@@ -120,7 +118,7 @@ import { createState, registerEffect } from 'statex';
  * The instance is a object that has the value of the state object created
  * by registerEfffect() hook.
  */
-const [username, setUsername, usernameInstance] = createState('anonymous');
+const username = createState('anonymous');
 
 /**
  * Registers an hook to trigger whenever a change is made. If you need to
@@ -136,16 +134,16 @@ const [username, setUsername, usernameInstance] = createState('anonymous');
  * The second parameter is instance of the state object. You can get the
  * instance from the createState() hook.
  */
-registerEffect(newValue => {
+username.onChange = newValue => {
 	console.log(newValue);
-}, usernameInstance);
+};
 
 // retrieving the value from the state.
-username();
+username.get();
 
 // setting the state, the callback inside the registerEffect() hook
 // is triggered
-setUsername('hello-world');
+username.set('hello-world');
 ```
 
 ## License
