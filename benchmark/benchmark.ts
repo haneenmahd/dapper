@@ -2,7 +2,7 @@ import { baseline, bench, run } from 'mitata';
 import { createStore } from 'redux';
 import { createState } from '../lib';
 
-baseline('StateX with 10 instances', () => {
+baseline('StateX', () => {
 	const counter = createState(0);
 
 	counter.onChange = newValue => {
@@ -14,7 +14,7 @@ baseline('StateX with 10 instances', () => {
 	counter.set(counter.get() - 1);
 });
 
-bench('Redux with 10 instances', () => {
+bench('Redux', () => {
 	function counterReducer(state = { value: 0 }, action) {
 		switch (action.type) {
 			case 'counter/incremented':
