@@ -1,12 +1,12 @@
-import { createState, registerEffect } from '../lib/index';
+import { createState } from '../lib/index';
 
 test('Check if registerEffect hook is being called', () => {
 	const value = createState('default');
 	const hasCalled = createState(false);
 
-	registerEffect(() => {
+	value.onChange = () => {
 		hasCalled.set(true);
-	}, [value]);
+	};
 
 	value.set('new value');
 
@@ -19,10 +19,15 @@ test('Check if registerEffect hook with multiple objects is called', () => {
 	const hasCalled = createState(false);
 	const hasCalled2 = createState(false);
 
-	registerEffect(() => {
+	value.onChange = () => {
 		hasCalled.set(true);
 		hasCalled2.set(true);
-	}, [value, value2]);
+	};
+
+	value2.onChange = () => {
+		hasCalled.set(true);
+		hasCalled2.set(true);
+	};
 
 	value.set('new value');
 	value.set('new value - 2');

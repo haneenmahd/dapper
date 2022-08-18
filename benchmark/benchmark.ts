@@ -1,6 +1,6 @@
 import { baseline, bench, run } from 'mitata';
 import { createStore } from 'redux';
-import { createState, registerEffect } from '../lib';
+import { createState } from '../lib';
 
 baseline('StateX with 10 instances', () => {
 	const counter = createState(0);
