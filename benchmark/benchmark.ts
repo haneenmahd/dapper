@@ -1,15 +1,17 @@
 import { baseline, bench, run } from 'mitata';
 import { createStore } from 'redux';
-import { createState, registerEffect } from '../lib';
+import { createState } from '../lib';
 
 baseline('StateX', () => {
-	const [getter, setter, instance] = createState(0);
+	const counter = createState(0);
 
-	registerEffect(() => {}, [instance]);
+	counter.onChange = newValue => {
+		newValue();
+	};
 
-	setter(getter() + 1);
-	setter(getter() + 1);
-	setter(getter() - 1);
+	counter.set(counter.get() + 1);
+	counter.set(counter.get() + 1);
+	counter.set(counter.get() - 1);
 });
 
 bench('Redux', () => {
@@ -24,7 +26,9 @@ bench('Redux', () => {
 		}
 	}
 	const store = createStore(counterReducer);
-	store.subscribe(() => {});
+	store.subscribe(() => {
+		store.getState();
+	});
 	store.dispatch({ type: 'counter/incremented' });
 	store.dispatch({ type: 'counter/incremented' });
 	store.dispatch({ type: 'counter/decremented' });

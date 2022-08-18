@@ -16,12 +16,12 @@ class ExtendedState extends State<string> {
 }
 
 test('Check if it supports extending the state', () => {
-	const [value, setter] = createStateWith(new ExtendedState('Hello'));
+	const value = createStateWith(new ExtendedState('Hello'));
 
 	const newValue = 'World';
-	setter(newValue);
+	value.set(newValue);
 
-	expect(value()).toBe('World');
+	expect(value.get()).toBe('World');
 });
 
 class InvalidExtendedState {

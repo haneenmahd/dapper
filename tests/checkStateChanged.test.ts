@@ -1,10 +1,10 @@
 import { createState } from '../lib/index';
 
 test('Check if state has been changed', () => {
-	const [checker, setValue] = createState('default');
+	const checker = createState('default');
 
 	const newValue = 'new value';
-	setValue(newValue);
+	checker.set(newValue);
 
-	expect(checker()).toEqual(newValue);
+	expect(checker.get()).toEqual(newValue);
 });
