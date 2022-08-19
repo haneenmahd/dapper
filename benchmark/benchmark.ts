@@ -2,7 +2,7 @@ import { baseline, bench, run } from 'mitata';
 import { createStore } from 'redux';
 import { createState } from '../lib';
 
-baseline('dapper', () => {
+baseline('Dapper', () => {
 	const counter = createState(0);
 
 	counter.onChange = newValue => {
