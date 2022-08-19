@@ -57,7 +57,7 @@ class CredentialsStore extends State<string> {
 }
 
 // you can call the actions inside your state
-const [name, setName, nameInstance] = createStateWith(
+const name = createStateWith(
 	CredentialsStore('some-name')
 );
 
