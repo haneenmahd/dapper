@@ -1,6 +1,6 @@
 {
 	"name": "@thq/dapper",
-	"version": "1.0.0-beta.0",
+	"version": "1.0.0-beta.1",
 	"description": "State management for any Javascript app",
 	"type": "module",
 	"types": "dist/types",
