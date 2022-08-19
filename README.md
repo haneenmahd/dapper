@@ -56,7 +56,7 @@ name.onChange = newValue => {
 **Extended State**:
 
 ```ts
-import { State, createState } from 'dapper';
+import { State, createState } from '@thq/dapper';
 
 class CredentialsStore extends State<string> {
 	verifyValue(value: string) {
@@ -75,7 +75,7 @@ class CredentialsStore extends State<string> {
 }
 
 // you can call the actions inside your state
-const [name, setName, nameInstance] = createStateWith(
+const name = createStateWith(
 	CredentialsStore('some-name')
 );
 
@@ -119,7 +119,7 @@ const state = createStateWith(
 ### Example
 
 ```ts
-import { createState } from 'dapper';
+import { createState } from '@thq/dapper';
 
 /**
  * Creates a new state object and returns an array of three elements with
