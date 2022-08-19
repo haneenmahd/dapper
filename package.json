@@ -6,8 +6,7 @@
 	"types": "dist/types",
 	"main": "dist/index.js",
 	"files": [
-		"dist",
-		"lib"
+		"dist"
 	],
 	"scripts": {
 		"type-check": "tsc",
@@ -34,13 +33,17 @@
 	"author": "Haneen Mahdin <citrus.canoes0b@icloud.com> (https://github.com/haneenmahd)",
 	"license": "ISC",
 	"repository": {
-		"url": "git://github.com/TruelinesHQ/dapper"
+		"url": "https://github.com/truelines/dapper"
 	},
 	"homepage": "https://truelines.io/dapper",
-	"bugs": "https://github.com/TruelinesHQ/dapper/issues",
+	"bugs": "https://github.com/truelines/dapper/issues",
 	"funding": {
 		"type": "github",
 		"url": "https://github.com/sponsors/haneenmahd"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://npm.pkg.github.com"
 	},
 	"devDependencies": {
 		"@types/jest": "^28.1.6",
