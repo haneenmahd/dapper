@@ -1,5 +1,5 @@
 {
-	"name": "@truelines/dapper",
+	"name": "@thq/dapper",
 	"version": "1.0.0-beta.0",
 	"description": "State management for any Javascript app",
 	"type": "module",
@@ -43,7 +43,7 @@
 	},
 	"publishConfig": {
 		"access": "public",
-		"registry": "https://npm.pkg.github.com"
+		"registry": "https://registry.npmjs.org"
 	},
 	"devDependencies": {
 		"@types/jest": "^28.1.6",
