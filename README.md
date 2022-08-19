@@ -1,8 +1,8 @@
-<img src="https://github.com/TruelinesHQ/statex/blob/main/resources/banner.png" alt="Banner" />
+<img src="https://github.com/TruelinesHQ/dapper/blob/main/resources/banner.png" alt="Banner" />
 
 <br />
 
-**StateX** is a blazing fast and lightweight framework for managing state in a Javascript app.
+**Dapper** is a blazing fast and lightweight framework for managing state in a Javascript app.
 
 ## Features
 
@@ -38,7 +38,7 @@ name.onChange = newValue => {
 **Extended State**:
 
 ```ts
-import { State, createState } from 'statex';
+import { State, createState } from 'dapper';
 
 class CredentialsStore extends State<string> {
 	verifyValue(value: string) {
@@ -57,14 +57,16 @@ class CredentialsStore extends State<string> {
 }
 
 // you can call the actions inside your state
-const [name, setName, nameInstance] = createStateWith(CredentialsStore('some-name'));
+const [name, setName, nameInstance] = createStateWith(
+	CredentialsStore('some-name')
+);
 
 nameInstance.get();
 ```
 
 #### `createState()`
 
-Creates a new `State` object and returns an instance of it. This function is just a simplified form of the `State` class. If you wanna read about the usage, you might need to checkout the [State](https://github.com/TruelinesHQ/statex#state) API.
+Creates a new `State` object and returns an instance of it. This function is just a simplified form of the `State` class. If you wanna read about the usage, you might need to checkout the [State](https://github.com/TruelinesHQ/dapper#state) API.
 
 Usage:
 
@@ -99,7 +101,7 @@ const state = createStateWith(
 ### Example
 
 ```ts
-import { createState } from 'statex';
+import { createState } from 'dapper';
 
 /**
  * Creates a new state object and returns an array of three elements with
@@ -154,4 +156,4 @@ username.set('hello-world');
 
 ## License
 
-**StateX** is licensed under `MIT` and the copyright is owned by Haneen Mahdin.
+**dapper** is licensed under `MIT` and the copyright is owned by Haneen Mahdin.
