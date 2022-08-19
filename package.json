@@ -15,8 +15,8 @@
 		"lint": "eslint --ext ts lib tests",
 		"test": "pnpm run lint && jest",
 		"build": "pnpm run postpublish && pnpm run type-check && pnpm run build:node && pnpm run build:web",
-		"build:web": "esbuild ./lib/index.ts --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/main.web.js",
-		"build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/main.node.js",
+		"build:web": "esbuild ./lib/index.ts --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/index.web.js",
+		"build:node": "esbuild ./lib/index.ts --bundle --platform=node --outfile=./dist/index.js",
 		"postpublish": "rm -rf dist",
 		"pretest": "pnpm run format && pnpm run format",
 		"benchmark": "tsx benchmark/benchmark.ts"
