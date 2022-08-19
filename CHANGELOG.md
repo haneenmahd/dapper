@@ -1,3 +1,9 @@
+# 🥱 1.0.0-beta.0
+
+- Fixed #13 [Missing some package files](https://github.com/truelines/dapper/issues/13)
+
+**Full Changelog**: https://github.com/truelines/dapper/compare/v1.0.0-beta.0...v1.0.0-beta.1
+
 # 👻 1.0.0-beta.0
 
 ## What's Changed
