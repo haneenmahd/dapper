@@ -15,7 +15,25 @@
 
 ## Installation
 
-This will be available when the package is published.
+You can install this package using NPM, Yarn or PNPM using the specific command.
+
+**NPM**
+
+```
+npm i @thq/dapper
+```
+
+**Yarn**
+
+```
+yarn add @thq/dapper
+```
+
+**PNPM**
+
+```
+pnpm add @thq/dapper
+```
 
 ## Documentation
 
@@ -57,7 +75,7 @@ class CredentialsStore extends State<string> {
 }
 
 // you can call the actions inside your state
-const name = createStateWith(
+const [name, setName, nameInstance] = createStateWith(
 	CredentialsStore('some-name')
 );
 
