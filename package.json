@@ -1,5 +1,5 @@
 {
-	"name": "dapper",
+	"name": "@truelines/dapper",
 	"version": "1.0.0-beta.0",
 	"description": "State management for any Javascript app",
 	"type": "module",
@@ -33,7 +33,9 @@
 	],
 	"author": "Haneen Mahdin <citrus.canoes0b@icloud.com> (https://github.com/haneenmahd)",
 	"license": "ISC",
-	"repository": "TruelinesHQ/dapper",
+	"repository": {
+		"url": "git://github.com/TruelinesHQ/dapper"
+	},
 	"homepage": "https://truelines.io/dapper",
 	"bugs": "https://github.com/TruelinesHQ/dapper/issues",
 	"funding": {
